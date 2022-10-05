@@ -336,7 +336,8 @@ def menu():
                             c.showPage()
 
                             for i in range(1, int(num)):
-                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.7.' + str(i)))
+                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.7.' + str(i)), infodata[3],
+                                              int(infodata[2]), infodata[0])
                                 stA = res.split(" = ")[1]
                                 if stA == "1":
                                     stA = "Up"
@@ -344,7 +345,8 @@ def menu():
                                     stA = "Down"
                                 else:
                                     stA = "Testing"
-                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.8.' + str(i)))
+                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.8.' + str(i)), infodata[3],
+                                              int(infodata[2]), infodata[0])
                                 stO = res.split(" = ")[1]
                                 if stO == "1":
                                     stO = "Up"
@@ -360,7 +362,8 @@ def menu():
                                     stO = "Not Present"
                                 else:
                                     stO = "Lower Layer Down"
-                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.2.' + str(i)))
+                                res = getinfo(ObjectIdentity('1.3.6.1.2.1.2.2.1.2.' + str(i)), infodata[3],
+                                              int(infodata[2]), infodata[0])
                                 name = hex_to_string(res.split(" = ")[1])
                                 data.append((name, stA, stO))
 
