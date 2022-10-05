@@ -1,7 +1,6 @@
 import PySimpleGUI as sg
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from reportlab.lib import colors
 from os import remove, path, rename, listdir
 from pysnmp.hlapi import *
 import itertools
@@ -34,10 +33,11 @@ def getinfo(oid, ipaddress="localhost", puerto=161, comunidad="comunidadSNMP"):
     return resp
 
 
-def hex_to_string(hex):
-    if hex[:2] == '0x':
-        hex = hex[2:]
-    string_value = bytes.fromhex(hex).decode('utf-8')
+def hex_to_string(hexadecimal):
+    new = ""
+    if hexadecimal[:2] == '0x':
+        new = hexadecimal[2:]
+    string_value = bytes.fromhex(new).decode('utf-8')
     return string_value
 
 
@@ -275,7 +275,7 @@ def menu():
                         if len(values5["-List-"]) != 1:
                             print("Debes seleccionar un archivo solamente")
                         else:
-                            content=""
+                            content = ""
                             data = str.split(values5["-List-"][0][0:-4], "-")
                             try:
                                 device = open(data[0] + "-" + data[1] + ".txt", "r+")
@@ -284,7 +284,7 @@ def menu():
                             except OSError as err:
                                 print("Error: {0}".format(err))
 
-                            infodata=content.split("\n")
+                            infodata = content.split("\n")
 
                             c = canvas.Canvas("Practica1-AngelGM.pdf", pagesize=letter)
                             c.setTitle("Practica 1: SNMP")
