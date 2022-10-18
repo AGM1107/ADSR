@@ -331,7 +331,7 @@ def menu():
 
                             c.drawCentredString(w / 2, h - 250, "Contacto: " + contact)
                             c.drawCentredString(w / 2, h - 350, "Nombre equipo: " + eqName)
-                            c.drawCentredString(w / 2, h - 450, "Comunidad: " + comunity)
+                            c.drawCentredString(w / 2, h - 450, "Ubicacion: " + comunity)
                             c.drawCentredString(w / 2, h - 550, "#Interfaces: " + num)
                             c.showPage()
 
