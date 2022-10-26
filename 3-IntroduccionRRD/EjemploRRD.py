@@ -1,6 +1,6 @@
 import rrdtool
 ret = rrdtool.create("test.rrd",
-                     #step:60,
+                     #step:300
                      "--start", '920804400',
                      "DS:speed:COUNTER:600:U:U",
                      "RRA:AVERAGE:0.5:1:24",
