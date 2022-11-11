@@ -22,13 +22,16 @@ def generatePDF(nombre, titulo, data):
     i = b = e = 0
     for d in data:
         if i % 2 == 0:
-            c.drawImage(d, (w / 2) - 50, h - 300 - (300 * b), width=250, height=250)
+            c.drawImage(d, (w / 2) - 275, h - 300 - (300 * b), width=250, height=250)
             # c.drawCentredString(w / 2, h - 250, "Contacto: " + contact)
             b += 1
         else:
-            c.drawImage(d, (w / 2) + 50, h - 300 - (300 * e), width=250, height=250)
+            c.drawImage(d, (w / 2) + 25, h - 300 - (300 * e), width=250, height=250)
             # c.drawCentredString(w / 2, h - 250, "Contacto: " + contact)
             e += 1
-        c.showPage()
+
+        if i % 2 == 1:
+            c.showPage()
+            b = e = 0
         i += 1
     c.save()
