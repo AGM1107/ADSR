@@ -10,12 +10,13 @@ mem_used = 0
 mem_total = 0
 percent = 0.0
 value = ""
+# tiempo_actual = int(time.time())
 
 while 1:
     for i in range(5, 21):
         # 1.3.6.1.2.1.25.3.3.1.2.id para la carga del procesador donde id es el identificador de cada
         # uno y el id va desde 5 hasta 20
-        carga_CPU = int(consultaSNMP('comunidadSNMP', '192.168.1.79', '1.3.6.1.2.1.25.3.3.1.2.'+str(i)))
+        carga_CPU = int(consultaSNMP('comunidadSNMP', '192.168.1.167', '1.3.6.1.2.1.25.3.3.1.2.'+str(i)))
         total_CPU += carga_CPU
         value += str(carga_CPU) + ":"
         carga_CPU = 0

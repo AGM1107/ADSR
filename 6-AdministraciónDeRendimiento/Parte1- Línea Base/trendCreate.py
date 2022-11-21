@@ -1,4 +1,7 @@
+import time
 import rrdtool
+
+# tiempo_actual = int(time.time())
 ret = rrdtool.create("/home/angelgm/Angel/Servicios en Red/ADSR/6-AdministraciónDeRendimiento/RRD/monitoreo.rrd",
                      "--start", 'N',
                      "--step", '300',
