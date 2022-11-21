@@ -4,12 +4,12 @@ from email.mime.multipart import MIMEMultipart
 
 COMMASPACE = ', '
 # Define params
-rrdpath = '/home/tani/PycharmProjects/Introduccion_SNMP/6-AdministraciónDeRendimiento/RRD/'
-imgpath = '/home/tani/PycharmProjects/Introduccion_SNMP/6-AdministraciónDeRendimiento/IMG/'
-fname = 'trend.rrd'
+rrdpath = '/home/angelgm/Angel/Servicios en Red/ADSR/6-AdministraciónDeRendimiento/RRD/'
+imgpath = '/home/angelgm/Angel/Servicios en Red/ADSR/6-AdministraciónDeRendimiento/IMG/'
+fname = 'monitoreo.rrd'
 
 mailsender = "dummycuenta3@gmail.com"
-mailreceip = "dummycuenta3@gmail.com"
+mailreceip = "angel_cruzazul11@hotmail.com"
 mailserver = 'smtp.gmail.com: 587'
 password = 'dvduuffmlhspbmjj'
 
@@ -20,7 +20,11 @@ def send_alert_attached(subject):
     msg['Subject'] = subject
     msg['From'] = mailsender
     msg['To'] = mailreceip
-    fp = open(imgpath+'deteccion.png', 'rb')
+    fp = open(imgpath+'cpuload.png', 'rb')
+    img = MIMEImage(fp.read())
+    fp.close()
+    msg.attach(img)
+    fp = open(imgpath + 'ramusage.png', 'rb')
     img = MIMEImage(fp.read())
     fp.close()
     msg.attach(img)
